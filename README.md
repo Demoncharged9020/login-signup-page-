@@ -10,11 +10,6 @@ A project showcasing a login page with a gradient color background and leaf-like
   ![Screenshot 2025-03-16 122402](https://github.com/user-attachments/assets/04ab1092-4242-4dee-a662-37493ae065cc)
 
 
-## Installation
-
-1. Clone the repository.
-2. Install dependencies with `npm install`.
-
 ## Usage
 
 1. Include the provided CSS and HTML files in your project.
