@@ -5,8 +5,8 @@ A project showcasing a login page with a gradient color background and leaf-like
 ## Features
 
 - Gradient color background with leaf-like images
-- Login page
-- Sign-up page
+![image](https://github.com/user-attachments/assets/dd86fd82-d00e-4c57-a2cb-7736be67e47b)
+
 
 ## Installation
 
