@@ -72,18 +72,20 @@
             color: #0c0c0c;
         }
         button {
-            width: 250px;
+            width: 150px; /* Reduced width */
             height: 40px;
             padding: 10px;
             border: none;
             background-color: #fcfffd; /* Blue button */
             color: rgb(11, 11, 11);
             font-size: 16px;
-            margin-left: 100px;
+            margin: 10px; /* Reduced margin */
             border-radius: 50px;
             cursor: pointer;
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
             font-weight:bolder;
+            display: flex;
+            justify-content: center;
             font-size:20px;
         }
         button:hover {
@@ -96,9 +98,17 @@
         }
         .signup-container {
             display: none;
+            font-family: 'Times New Roman', Times, serif;
         }
         .signup-container.active {
             display: block;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+        }
+        .signup-container button {
+            margin: 15px; /* Reduced margin */
         }
     </style>
 </head>
@@ -125,8 +135,10 @@
             </label>
             </div>
     </div>
-    <button onclick="login(event)">LOGIN</button>
-    <button onclick="showSignup()">SIGNUP</button>
+    <div class="button-group">
+        <button onclick="login(event)">LOGIN</button>
+        <button onclick="showSignup()">SIGNUP</button>
+    </div>
 </div>
 </div>
 
@@ -159,8 +171,10 @@
             </label>
             </div>
     </div>
-    <button onclick="signup(event)">SIGNUP</button>
-    <button onclick="showLogin()">Back to Login</button>
+    <div class="button-group">
+        <button onclick="signup(event)">SIGNUP</button>
+        <button onclick="showLogin()">Back To Login</button>
+    </div>
 </div>
 </div>
 
@@ -192,7 +206,11 @@
         const password = document.getElementById('signup-password').value;
 
         if (name && email && password) {
-            alert('Signup successful');
+         if (email.includes('@gmail.com')) {
+                alert('Signup successful');
+            } else {
+                alert('Please enter a valid Gmail address');
+            }
         } else {
             alert('Please enter your name, email, and password');
         }
