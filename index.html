@@ -1,11 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=login%20page.html">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        body {
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(145deg,rgb(5, 39, 80), rgb(29, 81, 2) ), url('petals_image-removebg-preview.png'); /* Gradient background with image */
+            background-size: cover; /* Ensure the background image covers the entire area */
+            background-position: center; /* Center the background image */
+            background-blend-mode: overlay; /* Overlay the background image */
+            font-size: 150%;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            padding: 20px;
+            width: 450px;
+            height: 250px;
+            text-decoration: double;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            border-bottom: double 3px white; /* Double lines under the heading */
+            padding-bottom: 10px;
+           margin-bottom: 80px;
+        }
+        .input-group {
+            margin: 15px 0;
+            position: relative;
+        }
+        .input-group input {
+            width: 250px;
+            height: 40px; /* Increased height */
+            padding: 10px 40px 10px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px; /* Increased font size */
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-left: 100px;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+        }
+        .input-group label {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: #fbf8faed;
+            transition: 0.3s;
+            margin-left: 85px;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center; 
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+        margin-bottom: 10px;
+        display: flex;
+        }
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: #0c0c0c;
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            background-color: #fcfffd; /* Blue button */
+            color: rgb(11, 11, 11);
+            font-size: 16px;
+            margin-left: 100px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+            font-weight:bolder;
+            font-size:20px;
+            display: flex;
+        }
+        button:hover {
+            background-color: #53c49a;
+             /* Lighter blue on hover */
+            
+             text-transform: capitalize;
+             transition-property: background-color, color;
+             transition-duration: 1s;
+        }
+        .signup-container {
+            display: none;
+        }
+        .signup-container.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <p> <a href="login page.html">click here</a>.</p>
+
+<div class="login-container">
+    <h2>User Login</h2>
+    <div>
+    <div class="input-group">
+        <input type="text" placeholder=" " id="username" required>
+          <label for="username">
+            <div >
+                <img src="user-icon-on-transparent-background-free-png.webp" style="height: 70px;width: auto; margin-left:-50px; margin-top: -15px;margin-right: -20PX;">
+
+            </div>
+           Username</label>
+    </div>
+    <div class="input-group">
+        <input type="password" placeholder=" " id="password" required>
+        <label for="password" style="margin-left:100px ;">
+            Password
+            <div>
+                <img src="password.png" style="height: 70px;width: auto; align-items:end;margin-left: 165px; margin-top: -15px; border-radius: 75px; margin-right: 20PX;">
+            </label>
+            </div>
+    </div>
+    <button onclick="login(event)">LOGIN</button>
+    <button onclick="showSignup()">SIGNUP</button>
+</div>
+</div>
+
+<div class="signup-container">
+    <h2>User Signup</h2>
+    <div>
+    <div class="input-group">
+        <input type="text" placeholder=" " id="name" required>
+          <label for="name">
+            <div >
+                <img src="user-icon-on-transparent-background-free-png.webp" style="height: 70px;width: auto; margin-left:-50px; margin-top: -15px;margin-right: -20PX;">
+            </div>
+           Name</label>
+    </div>
+    <div class="input-group">
+        <input type="email" placeholder=" " id="email" required>
+        <label for="email" style="margin-left:100px ;">
+            Email
+            <div>
+                <img src="email.png" style="height: 70px;width: auto; align-items:end;margin-left: 183px; margin-top: -15px; border-radius: 75px; margin-right: 20PX;">
+            </label>
+            </div>
+    </div>
+    <div class="input-group">
+        <input type="password" placeholder=" " id="signup-password" required>
+        <label for="signup-password" style="margin-left:100px ;">
+            Password
+            <div>
+                <img src="password.png" style="height: 70px;width: auto; align-items:end;margin-left: 165px; margin-top: -15px; border-radius: 75px; margin-right: 20PX;">
+            </label>
+            </div>
+    </div>
+    <button onclick="signup(event)">SIGNUP</button>
+    <button onclick="showLogin()">Back to Login</button>
+</div>
+</div>
+
+<script>
+    function login(event) {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username && password) {
+            alert('Login successful');
+        } else {
+            alert('Please enter your username and password');
+        }
+    }
+
+    function showSignup() {
+        document.querySelector('.login-container').style.display = 'none';
+        document.querySelector('.signup-container').classList.add('active');
+    }
+
+    function showLogin() {
+        document.querySelector('.signup-container').classList.remove('active');
+        document.querySelector('.login-container').style.display = 'block';
+    }
+
+    function signup(event) {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('signup-password').value;
+
+        if (name && email && password) {
+            alert('Signup successful');
+        } else {
+            alert('Please enter your name, email, and password');
+        }
+    }
+</script>
 
 </body>
 </html>
