@@ -3,7 +3,7 @@
 A project showcasing a login page with a gradient color background and leaf-like images in green and blue, along with a sign-up page.
 
 ## Features
-[Uploading login page.html…]()
+[login page.html…]()
 
 
 - Gradient color background with leaf-like images (sign-up page )
